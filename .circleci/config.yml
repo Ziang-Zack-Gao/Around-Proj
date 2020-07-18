@@ -4,11 +4,11 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.9
-    working_directory: /go/src/github.com/laioffer/Around/backend
+    working_directory: /go/src/github.com/laioffer/Around
     steps:
       - checkout
       - setup_remote_docker
       - run: |
-          docker build -t zackgao829/around/backend .
+          docker build -t zackgao829/around .
           docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_PASSWORD"
-          docker push zackgao829/around/backend
+          docker push zackgao829/around
